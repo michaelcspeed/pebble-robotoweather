@@ -134,7 +134,7 @@ void handle_minute_tick(AppContextRef ctx, PebbleTickEvent *t)
     string_format_time(minute_text, sizeof(minute_text), ":%M", t->tick_time);
     time_layer_set_text(&time_layer, hour_text, minute_text);
 	
-	if(!located || !(t->tick_time->tm_min % 15))
+	if(!located || !(t->tick_time->tm_min % 120)
 	{
 		//Every 15 minutes, request updated weather
 		http_location_request();
